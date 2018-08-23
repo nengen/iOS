@@ -58,13 +58,19 @@ class ConversionViewController: UIViewController, UITextFieldDelegate{
         
         let existingTextHasDecimalSeparator = textField.text?.range(of: ".")
         let replacementTextHasDcimalSeparator = string.range(of: ".")
+        let charactersNotAllowed = NSCharacterSet.letters
+        let replacementTextHasCharactersNotAllowed = string.rangeOfCharacter(from: charactersNotAllowed)
+        
         
         if existingTextHasDecimalSeparator != nil && replacementTextHasDcimalSeparator != nil{
+            return false
+        }else if replacementTextHasCharactersNotAllowed != nil{
             return false
         }else{
             return true
         }
         
     }
+    
     
 }
