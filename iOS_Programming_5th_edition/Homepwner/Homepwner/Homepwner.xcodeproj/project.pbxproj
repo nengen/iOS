@@ -14,12 +14,12 @@
 		E0FDB1472137D9E700DE85AB /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDB1462137D9E700DE85AB /* ItemsViewController.swift */; };
 		E0FDB1492137DA9600DE85AB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDB1482137DA9600DE85AB /* Item.swift */; };
 		E0FDB14B2137EBB300DE85AB /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDB14A2137EBB300DE85AB /* ItemStore.swift */; };
-<<<<<<< HEAD
+
 		E0FDB14D21411B9F00DE85AB /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDB14C21411B9F00DE85AB /* ItemCell.swift */; };
 		E0FDB14F214137BC00DE85AB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDB14E214137BC00DE85AB /* DetailViewController.swift */; };
 		E0FDB15121428C5500DE85AB /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FDB15021428C5500DE85AB /* ImageStore.swift */; };
-=======
->>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
+
+ 31201dff4c6d4e65282132d55381003b922e4049
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +32,12 @@
 		E0FDB1462137D9E700DE85AB /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		E0FDB1482137DA9600DE85AB /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E0FDB14A2137EBB300DE85AB /* ItemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStore.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
+
 		E0FDB14C21411B9F00DE85AB /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		E0FDB14E214137BC00DE85AB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		E0FDB15021428C5500DE85AB /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
-=======
->>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
+
+ 31201dff4c6d4e65282132d55381003b922e4049
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,16 +73,16 @@
 				E0FDB14A2137EBB300DE85AB /* ItemStore.swift */,
 				E0FDB1482137DA9600DE85AB /* Item.swift */,
 				E0FDB1462137D9E700DE85AB /* ItemsViewController.swift */,
-<<<<<<< HEAD
+
 				E0FDB14C21411B9F00DE85AB /* ItemCell.swift */,
 				E0FDB1342137D88800DE85AB /* AppDelegate.swift */,
 				E0FDB1382137D88800DE85AB /* Main.storyboard */,
 				E0FDB14E214137BC00DE85AB /* DetailViewController.swift */,
 				E0FDB15021428C5500DE85AB /* ImageStore.swift */,
-=======
+
 				E0FDB1342137D88800DE85AB /* AppDelegate.swift */,
 				E0FDB1382137D88800DE85AB /* Main.storyboard */,
->>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
+ 31201dff4c6d4e65282132d55381003b922e4049
 				E0FDB13B2137D88800DE85AB /* Assets.xcassets */,
 				E0FDB13D2137D88800DE85AB /* LaunchScreen.storyboard */,
 				E0FDB1402137D88800DE85AB /* Info.plist */,
@@ -165,14 +165,14 @@
 				E0FDB1472137D9E700DE85AB /* ItemsViewController.swift in Sources */,
 				E0FDB1492137DA9600DE85AB /* Item.swift in Sources */,
 				E0FDB14B2137EBB300DE85AB /* ItemStore.swift in Sources */,
-<<<<<<< HEAD
+
 				E0FDB14F214137BC00DE85AB /* DetailViewController.swift in Sources */,
 				E0FDB1352137D88800DE85AB /* AppDelegate.swift in Sources */,
 				E0FDB15121428C5500DE85AB /* ImageStore.swift in Sources */,
 				E0FDB14D21411B9F00DE85AB /* ItemCell.swift in Sources */,
-=======
+
 				E0FDB1352137D88800DE85AB /* AppDelegate.swift in Sources */,
->>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
+ 31201dff4c6d4e65282132d55381003b922e4049
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
