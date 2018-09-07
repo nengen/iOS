@@ -8,19 +8,29 @@
 
 import UIKit
 
+<<<<<<< HEAD
 class Item: NSObject, NSCoding {
+=======
+class Item: NSObject {
+>>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
     var name: String
     var valueInDollars: Int
     var serialNumber: String?
     let dateCreated: NSDate
+<<<<<<< HEAD
     let itemKey: String
+=======
+>>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
     
     init(name: String, serialNumber: String?, valueInDollars: Int){
         self.name = name
         self.valueInDollars = valueInDollars
         self.serialNumber = serialNumber
         self.dateCreated = NSDate()
+<<<<<<< HEAD
         self.itemKey = UUID().uuidString
+=======
+>>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
         
         super.init()
     }
@@ -46,6 +56,7 @@ class Item: NSObject, NSCoding {
         }
     }
     
+<<<<<<< HEAD
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: "name")
         aCoder.encode(dateCreated, forKey: "dateCreated")
@@ -70,4 +81,6 @@ class Item: NSObject, NSCoding {
     
     
     
+=======
+>>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
 }

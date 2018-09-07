@@ -12,12 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+<<<<<<< HEAD
     let itemStore = ItemStore()
+=======
+>>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+<<<<<<< HEAD
         //create an imagestore
         let imageStore = ImageStore()
         
@@ -26,6 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let itemsController = navController.topViewController as! ItemsViewController
         itemsController.itemStore = itemStore
         itemsController.imageStore = imageStore
+=======
+        //create an ItemStore
+        let itemStore = ItemStore()
+        
+        //access the ItemsViewController and set its item store
+        let itemsController = window!.rootViewController as! ItemsViewController
+        itemsController.itemStore = itemStore
+>>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
         
         return true
     }
@@ -38,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+<<<<<<< HEAD
         
         let success = itemStore.saveChanges()
         if(success) {
@@ -46,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("could not save any of the items")
         }
         
+=======
+>>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

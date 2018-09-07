@@ -12,12 +12,15 @@ class ItemStore{
     
     var allItems = [Item]()
     
+<<<<<<< HEAD
     let itemArchiveURL: NSURL = {
         let documentsDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         var documentDirectory = documentsDirectories.first!
         return documentDirectory.appendingPathComponent("items.archive") as NSURL
     }()
     
+=======
+>>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
     func createitem() -> Item{
         let newItem = Item(random: true)
         allItems.append(newItem)
@@ -30,6 +33,7 @@ class ItemStore{
         }
     }
     
+<<<<<<< HEAD
     func moveItemAtIndex(fromIndex: Int, toIndex: Int){
         if fromIndex == toIndex{
             return
@@ -59,4 +63,6 @@ class ItemStore{
     
     
     
+=======
+>>>>>>> 31201dff4c6d4e65282132d55381003b922e4049
 }
