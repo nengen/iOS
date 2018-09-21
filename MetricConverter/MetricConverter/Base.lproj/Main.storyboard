@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Converter-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Converter" id="BYZ-38-t0r" customClass="ViewController" customModule="MetricConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleAspectFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g19-Jf-3uV">
+                                <rect key="frame" x="167.5" y="39" width="39.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8gh-dk-Oon">
+                                <rect key="frame" x="141" y="111" width="93" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoQ-dV-c2m">
+                                <rect key="frame" x="178" y="177" width="18.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5HI-Aq-DBP">
+                                <rect key="frame" x="159.5" y="318" width="55" height="30"/>
+                                <state key="normal" title="Convert"/>
+                                <connections>
+                                    <action selector="convertButoon:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Dt-wT-UMy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter values to convert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iFO-dp-TWZ">
+                                <rect key="frame" x="62.5" y="412" width="250" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="pfF-VT-II3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="unit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G9O-fy-2PC">
+                                <rect key="frame" x="165" y="233" width="45.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Rjo-em-Zoc"/>
+                                </connections>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="bLt-9S-Ex2">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="oYs-rl-nHv"/>
+                                    <barButtonItem title="Weight" image="weights" id="Wad-2l-zlJ">
+                                        <connections>
+                                            <action selector="weightButton:" destination="BYZ-38-t0r" id="44H-pU-5me"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BxH-Fs-86f"/>
+                                    <barButtonItem title="Length" image="lengths" id="bcf-Z7-mSF">
+                                        <connections>
+                                            <action selector="lengthButton:" destination="BYZ-38-t0r" id="ogR-mp-jMG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9vt-GK-40w"/>
+                                    <barButtonItem title="Temperature" image="temperatures" id="xMY-Xc-FWB">
+                                        <connections>
+                                            <action selector="temperatureButton:" destination="BYZ-38-t0r" id="2ui-tX-CtE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nGM-oO-BCx"/>
+                                </items>
+                            </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="unit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K2S-jn-x5m">
+                                <rect key="frame" x="237" y="111" width="45.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="9bf-mb-Bji"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8gh-dk-Oon" firstAttribute="top" secondItem="g19-Jf-3uV" secondAttribute="bottom" constant="51" id="1VF-9X-nQH"/>
+                            <constraint firstItem="G9O-fy-2PC" firstAttribute="top" secondItem="yoQ-dV-c2m" secondAttribute="bottom" constant="35" id="6Mc-xj-DKG"/>
+                            <constraint firstItem="iFO-dp-TWZ" firstAttribute="top" secondItem="5HI-Aq-DBP" secondAttribute="bottom" constant="64" id="7Qv-xj-VzW"/>
+                            <constraint firstItem="5HI-Aq-DBP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C4J-ID-BsV"/>
+                            <constraint firstItem="iFO-dp-TWZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HAh-Rg-i3A"/>
+                            <constraint firstItem="K2S-jn-x5m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="91" id="IWj-df-ZwM"/>
+                            <constraint firstItem="bLt-9S-Ex2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Nll-mL-1bk"/>
+                            <constraint firstItem="K2S-jn-x5m" firstAttribute="leading" secondItem="8gh-dk-Oon" secondAttribute="trailing" constant="3" id="UMf-gd-hQU"/>
+                            <constraint firstItem="g19-Jf-3uV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UYh-Hj-YAc"/>
+                            <constraint firstItem="G9O-fy-2PC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Weq-mz-85W"/>
+                            <constraint firstItem="g19-Jf-3uV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="19" id="dTd-PA-AAU"/>
+                            <constraint firstItem="8gh-dk-Oon" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eBE-JW-e6F"/>
+                            <constraint firstItem="yoQ-dV-c2m" firstAttribute="top" secondItem="8gh-dk-Oon" secondAttribute="bottom" constant="36" id="g3j-fN-CvL"/>
+                            <constraint firstItem="bLt-9S-Ex2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="luM-4o-0MK"/>
+                            <constraint firstItem="5HI-Aq-DBP" firstAttribute="top" secondItem="G9O-fy-2PC" secondAttribute="bottom" constant="55" id="t7m-ak-00Z"/>
+                            <constraint firstItem="bLt-9S-Ex2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="tjG-QS-06T"/>
+                            <constraint firstItem="yoQ-dV-c2m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zOm-QH-40b"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Weight" image="weights" id="fMY-Iz-EN2"/>
+                    <connections>
+                        <outlet property="answerLabel" destination="iFO-dp-TWZ" id="k35-bL-UWg"/>
+                        <outlet property="fromTextField" destination="8gh-dk-Oon" id="aqd-Cq-zTG"/>
+                        <outlet property="fromTxtPick" destination="K2S-jn-x5m" id="xo2-Fi-GKn"/>
+                        <outlet property="toTxtPick" destination="G9O-fy-2PC" id="ody-af-fOX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lengths" width="29" height="29"/>
+        <image name="temperatures" width="29" height="29"/>
+        <image name="weights" width="29" height="29"/>
+    </resources>
+</document>
