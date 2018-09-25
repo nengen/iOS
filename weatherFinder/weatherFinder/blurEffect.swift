@@ -7,3 +7,25 @@
 //
 
 import Foundation
+import UIKit
+
+extension UIImageView
+{
+    func addBlurEffect()
+    {
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
+        blurEffectView.alpha = 0.2
+        blurEffectView.frame = self.bounds
+        vibrancyView.frame = blurEffectView.frame
+        
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        
+        blurEffectView.contentView.addSubview(vibrancyView)
+        self.addSubview(blurEffectView)
+    }
+    
+    
+}
