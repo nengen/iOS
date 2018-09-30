@@ -62,9 +62,19 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="P82-pW-97a"/>
                                 </connections>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kbu-JO-g1l">
+                                <rect key="frame" x="87.5" y="240" width="200" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="PMB-Wp-fQR"/>
+                                    <constraint firstAttribute="width" constant="200" id="Yfl-gE-xga"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="kbu-JO-g1l" firstAttribute="top" secondItem="0RA-NB-nkm" secondAttribute="bottom" id="6ZL-cQ-gEH"/>
+                            <constraint firstItem="kbu-JO-g1l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6rr-HV-h5D"/>
                             <constraint firstItem="9S9-6r-sX2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="A5Y-yP-VtT"/>
                             <constraint firstItem="0RA-NB-nkm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U0E-Uh-WOb"/>
                             <constraint firstItem="wBd-h0-lR7" firstAttribute="top" secondItem="0RA-NB-nkm" secondAttribute="bottom" constant="75" id="VIX-p1-wq0"/>
@@ -76,13 +86,14 @@
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="9fg-49-JSx" id="jcS-Q5-0qK"/>
+                        <outlet property="autocompleteTableView" destination="kbu-JO-g1l" id="JcP-Ew-J0U"/>
                         <outlet property="cityTextField" destination="0RA-NB-nkm" id="Zaz-k7-ccj"/>
                         <outlet property="showWeatherOutlet" destination="wBd-h0-lR7" id="fiU-gz-SLK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="333.60000000000002" y="136.28185907046478"/>
         </scene>
     </scenes>
 </document>
