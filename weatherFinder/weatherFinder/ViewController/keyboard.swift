@@ -29,22 +29,32 @@ extension ViewController {
         textField.inputAccessoryView = toolBar
     }
     
+    
+    //these three functions do almost the same, replace them with one?
+    
     //close picker
     @objc func doneClick(){
         view.endEditing(true)
+        showWeatherOutlet.isHidden = false
+        autocompleteTableView.isHidden = true
     }
     
     //close picker
     @objc func cancelClick(){
         cityTextField.text = ""
         view.endEditing(true)
+        showWeatherOutlet.isHidden = false
+        autocompleteTableView.isHidden = true
     }
     
 
     
-    @objc func dismissKeyboard() {
+    /*@objc func dismissKeyboard() {
         view.endEditing(true)
-    }
+        showWeatherOutlet.isHidden = false
+        autocompleteTableView.isHidden = true
+
+    }*/
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         pickUp(textField)

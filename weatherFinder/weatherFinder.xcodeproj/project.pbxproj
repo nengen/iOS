@@ -59,6 +59,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E00449FA21610110004DC15F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E0E12C362159153B00A28388 /* ViewController.swift */,
+				E00449F72160E74F004DC15F /* keyboard.swift */,
+				E00449F3215EA8D6004DC15F /* autoCompleteInLine.swift */,
+				E04EAD4B215A4391007A6CE0 /* autoComplete.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		E04EAD36215A2B3F007A6CE0 /* weatherPics */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,13 +102,10 @@
 		E0E12C332159153B00A28388 /* weatherFinder */ = {
 			isa = PBXGroup;
 			children = (
-				E04EAD4B215A4391007A6CE0 /* autoComplete.swift */,
-				E00449F3215EA8D6004DC15F /* autoCompleteInLine.swift */,
-				E00449F72160E74F004DC15F /* keyboard.swift */,
-				E0E12C342159153B00A28388 /* AppDelegate.swift */,
-				E0E12C362159153B00A28388 /* ViewController.swift */,
-				E04EAD45215A2DA8007A6CE0 /* blurEffect.swift */,
 				E04EAD43215A2B8B007A6CE0 /* getWeather.swift */,
+				E00449FA21610110004DC15F /* ViewController */,
+				E0E12C342159153B00A28388 /* AppDelegate.swift */,
+				E04EAD45215A2DA8007A6CE0 /* blurEffect.swift */,
 				E0E12C382159153B00A28388 /* Main.storyboard */,
 				E04EAD36215A2B3F007A6CE0 /* weatherPics */,
 				E0E12C3B2159153B00A28388 /* Assets.xcassets */,

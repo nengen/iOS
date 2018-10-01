@@ -19,7 +19,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     @IBOutlet weak var showWeatherOutlet: UIButton!
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var autocompleteTableView: UITableView!
-    //let autocompleteTableView = UITableView(frame: CGRect(x:0,y:80,width:320,height:120), style: UITableViewStyle.plain)
 
     var pastUrls = ["Bergen,DE", "Bergen,NO", "Bergen", "Cats", "Dogs", "Children"]
     var autocompleteUrls = [String]()
@@ -31,8 +30,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tap)
+       // let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        //view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view, typically from a nib.
         
         //set background image to a picture
@@ -53,12 +52,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         cityTextField.layer.borderColor = UIColor.lightGray.cgColor
         cityTextField.layer.cornerRadius = 6
         cityTextField.placeholder = "Enter value"
-        cityTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        //cityTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
 
         
         autocompleteTableView.delegate = self
         autocompleteTableView.dataSource = self
         autocompleteTableView.isScrollEnabled = true
+        autocompleteTableView.allowsSelection = true
+        autocompleteTableView.isUserInteractionEnabled = true
         autocompleteTableView.isHidden = true
         autocompleteTableView.layer.borderWidth = 2
         autocompleteTableView.layer.borderColor = UIColor.lightGray.cgColor
@@ -79,9 +80,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         
 
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        showWeatherOutlet.isHidden = false
-    }
     
     override func viewDidLayoutSubviews(){
         autocompleteTableView.frame = CGRect(x: autocompleteTableView.frame.origin.x, y: autocompleteTableView.frame.origin.y, width: autocompleteTableView.frame.size.width, height: autocompleteTableView.contentSize.height)
@@ -90,7 +88,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-  
+        
         autocompleteTableView.isHidden = false
         showWeatherOutlet.isHidden = true
         let substring = (self.cityTextField.text! as NSString).replacingCharacters(in: range, with: string)
@@ -122,10 +120,17 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         return cell!
     }
     
+
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("hey")
         let selectedCell : UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
         cityTextField.text = selectedCell.textLabel?.text
+        autocompleteTableView.isHidden = true
+        view.endEditing(true)
+        showWeatherOutlet.isHidden = false
     }
+ 
    
     @objc func textFieldDidChange(_ textField: UITextField) {
         if cityTextField.text!.count == 0{
@@ -137,8 +142,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
             cityTextField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
     }
-    
-
     
     
     
