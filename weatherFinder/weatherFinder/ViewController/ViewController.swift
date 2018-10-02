@@ -20,11 +20,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var autocompleteTableView: UITableView!
 
-    var pastUrls = ["Bergen,DE", "Bergen,NO", "Bergen", "Cats", "Dogs", "Children"]
+
     var autocompleteUrls = [String]()
     var timer = Timer()
     
-    
+    var jsonparser = jsonParser()
+    var pastUrls = [Any]()
+
+
     
 
     
@@ -67,6 +70,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         autocompleteTableView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         autocompleteTableView.backgroundColor = UIColor.clear
         cityTextField.delegate = self
+        
+        //let error = jsonParser.nameAndID.init(name: "Error", country: "Error", id: 0)
+        
+        let cityList = jsonparser.loadJson(filename: "city.list")
+        pastUrls = jsonparser.getCitiesAsString(json: cityList)
+        
+
     
     }
     

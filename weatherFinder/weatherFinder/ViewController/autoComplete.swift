@@ -13,14 +13,12 @@ extension ViewController{
     {
         autocompleteUrls.removeAll(keepingCapacity: false)
         
-        for curString in pastUrls
-        {
-            print(curString)
-            let myString: NSString! = curString as NSString
+        for curString in pastUrls{
+            let myString: NSString! = curString as! NSString
             let substringRange: NSRange! = myString.range(of: substring)
             if (substringRange.location == 0)
             {
-                autocompleteUrls.append(curString)
+                autocompleteUrls.append(curString as! String)
             }
         }
         

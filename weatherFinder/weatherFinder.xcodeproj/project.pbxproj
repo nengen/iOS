@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E00449F4215EA8D6004DC15F /* autoCompleteInLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00449F3215EA8D6004DC15F /* autoCompleteInLine.swift */; };
 		E00449F82160E74F004DC15F /* keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00449F72160E74F004DC15F /* keyboard.swift */; };
+		E0487B842162444A00843B99 /* jsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0487B832162444A00843B99 /* jsonParser.swift */; };
 		E04EAD3D215A2B40007A6CE0 /* cityDawn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E04EAD37215A2B3F007A6CE0 /* cityDawn.jpg */; };
 		E04EAD3E215A2B40007A6CE0 /* cityNight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E04EAD38215A2B3F007A6CE0 /* cityNight.jpg */; };
 		E04EAD3F215A2B40007A6CE0 /* snow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E04EAD39215A2B3F007A6CE0 /* snow.jpg */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		E00449F3215EA8D6004DC15F /* autoCompleteInLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = autoCompleteInLine.swift; sourceTree = "<group>"; };
 		E00449F72160E74F004DC15F /* keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboard.swift; sourceTree = "<group>"; };
+		E0487B832162444A00843B99 /* jsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jsonParser.swift; sourceTree = "<group>"; };
 		E04EAD37215A2B3F007A6CE0 /* cityDawn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cityDawn.jpg; sourceTree = "<group>"; };
 		E04EAD38215A2B3F007A6CE0 /* cityNight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cityNight.jpg; sourceTree = "<group>"; };
 		E04EAD39215A2B3F007A6CE0 /* snow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snow.jpg; sourceTree = "<group>"; };
@@ -70,6 +72,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		E0487B852162445B00843B99 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				E0487B832162444A00843B99 /* jsonParser.swift */,
+				E0E12C462159170300A28388 /* city.list.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 		E04EAD36215A2B3F007A6CE0 /* weatherPics */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,11 +118,11 @@
 				E0E12C342159153B00A28388 /* AppDelegate.swift */,
 				E04EAD45215A2DA8007A6CE0 /* blurEffect.swift */,
 				E0E12C382159153B00A28388 /* Main.storyboard */,
+				E0487B852162445B00843B99 /* JSON */,
 				E04EAD36215A2B3F007A6CE0 /* weatherPics */,
 				E0E12C3B2159153B00A28388 /* Assets.xcassets */,
 				E0E12C3D2159153B00A28388 /* LaunchScreen.storyboard */,
 				E0E12C402159153B00A28388 /* Info.plist */,
-				E0E12C462159170300A28388 /* city.list.json */,
 			);
 			path = weatherFinder;
 			sourceTree = "<group>";
@@ -197,6 +208,7 @@
 			files = (
 				E00449F4215EA8D6004DC15F /* autoCompleteInLine.swift in Sources */,
 				E04EAD4C215A4391007A6CE0 /* autoComplete.swift in Sources */,
+				E0487B842162444A00843B99 /* jsonParser.swift in Sources */,
 				E0E12C372159153B00A28388 /* ViewController.swift in Sources */,
 				E00449F82160E74F004DC15F /* keyboard.swift in Sources */,
 				E04EAD46215A2DA8007A6CE0 /* blurEffect.swift in Sources */,
