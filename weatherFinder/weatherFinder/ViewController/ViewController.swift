@@ -24,8 +24,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     var autocompleteUrls = [String]()
     var timer = Timer()
     
+    
     var jsonparser = jsonParser()
     var pastUrls = [Any]()
+    var allUrls = [String:[Any]]()
+    var tempArr = [String: [Any]]()
 
 
     
@@ -73,8 +76,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         
         //let error = jsonParser.nameAndID.init(name: "Error", country: "Error", id: 0)
         
-        let cityList = jsonparser.loadJson(filename: "city.list")
-        pastUrls = jsonparser.getCitiesAsString(json: cityList)
+        allUrls = jsonparser.loadJson(filename: "alphabeticSortedJson")
+        //pastUrls = jsonparser.getCitiesAsString(json: cityList)
         
 
     
@@ -102,8 +105,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         autocompleteTableView.isHidden = false
         showWeatherOutlet.isHidden = true
         let substring = (self.cityTextField.text! as NSString).replacingCharacters(in: range, with: string)
+        if (self.cityTextField.text?.count ?? 0)>1 {
+
+            pastUrls = jsonparser.getCharDict(json: allUrls as! [String : [jsonParser.nameAndID]], char: substring)
+            searchAutocompleteEntriesWithSubstring(substring: substring)
+        }
         
-        searchAutocompleteEntriesWithSubstring(substring: substring)
         return true
     }
 

@@ -11,10 +11,12 @@ import Foundation
 extension ViewController{
     func searchAutocompleteEntriesWithSubstring(substring: String)
     {
+        
         autocompleteUrls.removeAll(keepingCapacity: false)
+
         
         for curString in pastUrls{
-            let myString: NSString! = curString as! NSString
+            let myString: NSString! = curString  as! NSString
             let substringRange: NSRange! = myString.range(of: substring)
             if (substringRange.location == 0)
             {
