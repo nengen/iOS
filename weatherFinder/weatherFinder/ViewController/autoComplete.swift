@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension ViewController{
     func searchAutocompleteEntriesWithSubstring(substring: String)
@@ -26,4 +27,21 @@ extension ViewController{
         
         autocompleteTableView.reloadData()
     }
+    
+    
+    func setUpAutoCompleteTableView(){
+        autocompleteTableView.delegate = self
+        autocompleteTableView.dataSource = self
+        autocompleteTableView.isScrollEnabled = true
+        autocompleteTableView.allowsSelection = true
+        autocompleteTableView.isUserInteractionEnabled = true
+        autocompleteTableView.isHidden = true
+        autocompleteTableView.layer.borderWidth = 1
+        autocompleteTableView.layer.borderColor = UIColor.lightGray.cgColor
+        autocompleteTableView.layer.cornerRadius = 6
+        autocompleteTableView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        autocompleteTableView.backgroundColor = UIColor.clear
+        autocompleteTableView.keyboardDismissMode = .onDrag
+    }
+    
 }

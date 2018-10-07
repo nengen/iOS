@@ -49,12 +49,11 @@ extension ViewController {
     
 
     
-    /*@objc func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
         showWeatherOutlet.isHidden = false
         autocompleteTableView.isHidden = true
-
-    }*/
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         pickUp(textField)

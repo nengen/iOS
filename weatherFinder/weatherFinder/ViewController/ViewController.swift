@@ -12,7 +12,6 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
 
     
-    
     @IBOutlet weak var cityTextField: UITextField!
     @IBAction func showWeatherButton(_ sender: UIButton) {
     }
@@ -36,69 +35,56 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        //view.addGestureRecognizer(tap)
-        // Do any additional setup after loading the view, typically from a nib.
+        let pbTimer = ParkBenchTimer()
         
         //set background image to a picture
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "cityNight.jpg")
         backgroundImage.contentMode =  UIViewContentMode.scaleAspectFill
-        //blur the background image
         backgroundImage.addBlurEffect()
         self.view.insertSubview(backgroundImage, at: 0)
 
-        
-        
         //round the corners of the button
         showWeatherOutlet.layer.cornerRadius = 4
-        
-        cityTextField.backgroundColor = UIColor.clear
-        cityTextField.layer.borderWidth = 2
-        cityTextField.layer.borderColor = UIColor.lightGray.cgColor
-        cityTextField.layer.cornerRadius = 6
-        cityTextField.placeholder = "Enter value"
-        //cityTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
-
-        
-        autocompleteTableView.delegate = self
-        autocompleteTableView.dataSource = self
-        autocompleteTableView.isScrollEnabled = true
-        autocompleteTableView.allowsSelection = true
-        autocompleteTableView.isUserInteractionEnabled = true
-        autocompleteTableView.isHidden = true
-        autocompleteTableView.layer.borderWidth = 2
-        autocompleteTableView.layer.borderColor = UIColor.lightGray.cgColor
-        autocompleteTableView.layer.cornerRadius = 6
-        autocompleteTableView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        autocompleteTableView.backgroundColor = UIColor.clear
-        cityTextField.delegate = self
-        
-        //let error = jsonParser.nameAndID.init(name: "Error", country: "Error", id: 0)
-        
+        setUpTextField()
+        setUpAutoCompleteTableView()
         allUrls = jsonparser.loadJson(filename: "alphabeticSortedJson")
-        //pastUrls = jsonparser.getCitiesAsString(json: cityList)
-        
-
-    
+        print("View did load took \(pbTimer.stop()) seconds")
+        /*let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)*/
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         autocompleteTableView.frame = CGRect(x: autocompleteTableView.frame.origin.x, y: autocompleteTableView.frame.origin.y, width: autocompleteTableView.frame.size.width, height: autocompleteTableView.contentSize.height)
         autocompleteTableView.backgroundColor = UIColor.clear
-        
-
     }
     
+    
+    
     override func viewDidLayoutSubviews(){
-        autocompleteTableView.frame = CGRect(x: autocompleteTableView.frame.origin.x, y: autocompleteTableView.frame.origin.y, width: autocompleteTableView.frame.size.width, height: autocompleteTableView.contentSize.height)
+        //restrict autoTableView to dont go past screen
+        var height = 0
+        if autocompleteTableView.contentSize.height > 200{
+            height = 200
+        }else{
+            height = Int(autocompleteTableView.contentSize.height)
+        }
+        autocompleteTableView.frame = CGRect(x: autocompleteTableView.frame.origin.x, y: autocompleteTableView.frame.origin.y, width: autocompleteTableView.frame.size.width, height: CGFloat(height))
         autocompleteTableView.backgroundColor = UIColor.clear
         autocompleteTableView.reloadData()
     }
+    
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -107,19 +93,26 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         let substring = (self.cityTextField.text! as NSString).replacingCharacters(in: range, with: string)
         if (self.cityTextField.text?.count ?? 0)>1 {
 
-            pastUrls = jsonparser.getCharDict(json: allUrls as! [String : [jsonParser.nameAndID]], char: substring)
+            let temp = jsonparser.getCharDict(json: allUrls as! [String : [jsonParser.nameAndID]], char: substring)
+            pastUrls = jsonparser.getCitiesAsString(json: temp)
             searchAutocompleteEntriesWithSubstring(substring: substring)
         }
-        
         return true
     }
+    
 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if autocompleteUrls.count>15{
+            return 15
+        }
         return autocompleteUrls.count
     }
     
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let pbTimer = ParkBenchTimer()
         
         let autoCompleteRowIdentifier = "AutoCompleteRowIdentifier"
         var cell = tableView.dequeueReusableCell(withIdentifier: autoCompleteRowIdentifier)
@@ -134,6 +127,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         }
         cell?.backgroundColor = UIColor.clear
         cell?.textLabel?.textColor = UIColor.white
+        print("cellForRowAt took \(pbTimer.stop()) seconds")
         return cell!
     }
     
@@ -148,17 +142,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         showWeatherOutlet.isHidden = false
     }
  
+    
    
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        if cityTextField.text!.count == 0{
-            autocompleteTableView.isHidden = true
-            cityTextField.layer.cornerRadius = 6
-            print("empty")
-        }else{
-            autocompleteTableView.isHidden = false
-            cityTextField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        }
-    }
+
     
     
     

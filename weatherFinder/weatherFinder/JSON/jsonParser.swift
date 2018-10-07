@@ -55,16 +55,16 @@ class jsonParser{
     }
     
     
-    /*func getCitiesAsString(json: [String: [nameAndID]])->[String]{
+    func getCitiesAsString(json: [nameAndID])->[String]{
         var tempArray = [String]()
         for array in json{
             
-            let stringForSearch = array. "," + array.country
+            let stringForSearch = array.name + "," + array.country
             tempArray.append(stringForSearch)
         }
 
         return tempArray
-    }*/
+    }
    
 }
 //583509
