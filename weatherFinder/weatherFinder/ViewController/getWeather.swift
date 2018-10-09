@@ -9,8 +9,6 @@
 import Foundation
 class getTheWeather{
     
-    var kelvin: Double = 0.0
-    var description: String = "None"
     
 struct weatherDesc: Decodable {
     
@@ -26,36 +24,44 @@ struct Weather: Decodable{
     let description: String
 }
 
-    func getWeather(city: Int)->weatherDesc{
-    
+    func getWeather(city: Int, _ completion: @escaping ([Any]) -> ()) -> [Any] {
 
-    let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?id=\(city)&appid=060305de4435694d756c92df5a70b07c") //API key at the end
-        var temp = weatherDesc(weather: [Weather.init(description: "None")], main: Main.init(temp: 0.00))
+    let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?id=\(city)&appid=060305de4435694d756c92df5a70b07c")
+    var temp = [Any]()
     let task = URLSession.shared.dataTask(with: url!) {(data,response, error) in
         guard let data = data else{return}
+        print(data)
         if error != nil{
             print(error!)
         }else{
-           
+            if response != nil{
                 do{
-
                     let jsonResult = try JSONDecoder().decode(weatherDesc.self, from: data)
-                    temp = jsonResult
-
+                    temp.append(jsonResult.main.temp)
+                    for i in jsonResult.weather{
+                        temp.append(i.description)
+                    }
+                    completion(temp)
                 }catch{
                     print("Json processing failed")
                 }
-            
+            }
         }
     }
     task.resume()
     return temp
 }
     
-    func convertFromKelvinToCelsius(kelvin: Double) -> Double {
-        return (kelvin - 273.15)
+    func convertFromKelvinToCelsius(kelvin: Double) -> String {
+        let res = kelvin - 273.15
+        return String(round(res))
     }
     
+    func makeWeatherDesc()-> weatherDesc{
+        var temp = weatherDesc(weather: [Weather.init(description: "None")], main: Main.init(temp: 0.00))
+        
+        return temp
+    }
     
 
 }

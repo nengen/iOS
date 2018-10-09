@@ -16,6 +16,7 @@ extension ViewController{
     cityTextField.layer.borderColor = UIColor.lightGray.cgColor
     cityTextField.layer.cornerRadius = 6
     cityTextField.placeholder = "Enter value"
+    cityTextField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     cityTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     
     cityTextField.delegate = self
@@ -30,7 +31,6 @@ extension ViewController{
             print("empty")
         }else{
             autocompleteTableView.isHidden = false
-            cityTextField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
     }
 }

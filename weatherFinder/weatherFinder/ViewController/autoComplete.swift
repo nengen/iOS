@@ -17,7 +17,7 @@ extension ViewController{
 
         
         for curString in pastUrls{
-            let myString: NSString! = curString  as! NSString
+            let myString: NSString! = (curString  as! NSString)
             let substringRange: NSRange! = myString.range(of: substring)
             if (substringRange.location == 0)
             {

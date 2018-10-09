@@ -14,7 +14,26 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     @IBOutlet weak var cityTextField: UITextField!
     @IBAction func showWeatherButton(_ sender: UIButton) {
+        let id = jsonparser.getIdFromJson(json: allUrls as! [String : [jsonParser.nameAndID]], city: answer!)
+        //var tempArray = [Any]()
+        weatherObj.getWeather(city: id) {(tempArray) -> () in
+            if tempArray != nil {
+                DispatchQueue.main.async {
+                    let temp = tempArray[0]
+                    let desc = tempArray[1]
+                    let celsius = self.weatherObj.convertFromKelvinToCelsius(kelvin: temp as! Double)
+                    let stringToDisplay = "It is currently \(celsius) degrees outside with \(desc)"
+                    self.answerLabel.text = stringToDisplay
+                    self.answerLabel.textColor = UIColor.white
+                }
+            }
+            
+        }
+        
+
+        
     }
+    
     @IBOutlet weak var showWeatherOutlet: UIButton!
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var autocompleteTableView: UITableView!
@@ -23,12 +42,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     var autocompleteUrls = [String]()
     var timer = Timer()
     
-    
+    var weatherObj = getTheWeather()
     var jsonparser = jsonParser()
     var pastUrls = [Any]()
     var allUrls = [String:[Any]]()
     var tempArr = [String: [Any]]()
-
+    var answer: String?
 
     
 
@@ -40,7 +59,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         //set background image to a picture
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "cityNight.jpg")
-        backgroundImage.contentMode =  UIViewContentMode.scaleAspectFill
+        backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         backgroundImage.addBlurEffect()
         self.view.insertSubview(backgroundImage, at: 0)
 
@@ -72,10 +91,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     
     override func viewDidLayoutSubviews(){
-        //restrict autoTableView to dont go past screen
+        //restrict autoTableView to don't go past screen
         var height = 0
-        if autocompleteTableView.contentSize.height > 200{
-            height = 200
+        if autocompleteTableView.contentSize.height > 175{
+            height = 175
         }else{
             height = Int(autocompleteTableView.contentSize.height)
         }
@@ -88,12 +107,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        autocompleteTableView.isHidden = false
         showWeatherOutlet.isHidden = true
+        autocompleteTableView.isHidden = false
         let substring = (self.cityTextField.text! as NSString).replacingCharacters(in: range, with: string)
         if (self.cityTextField.text?.count ?? 0)>1 {
 
-            let temp = jsonparser.getCharDict(json: allUrls as! [String : [jsonParser.nameAndID]], char: substring)
+            let temp = jsonparser.getCharDict(json: allUrls as! [String : [jsonParser.nameAndID]], char: substring.lowercased())
             pastUrls = jsonparser.getCitiesAsString(json: temp)
             searchAutocompleteEntriesWithSubstring(substring: substring)
         }
@@ -117,13 +136,11 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         let autoCompleteRowIdentifier = "AutoCompleteRowIdentifier"
         var cell = tableView.dequeueReusableCell(withIdentifier: autoCompleteRowIdentifier)
         
-        if cell != nil
-        {
+        if cell != nil{
             let index = indexPath.row as Int
             cell!.textLabel?.text = autocompleteUrls[index]
-        } else
-        {
-            cell = UITableViewCell(style: UITableViewCellStyle.value1, reuseIdentifier: autoCompleteRowIdentifier)
+        } else{
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.value1, reuseIdentifier: autoCompleteRowIdentifier)
         }
         cell?.backgroundColor = UIColor.clear
         cell?.textLabel?.textColor = UIColor.white
@@ -134,9 +151,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hey")
         let selectedCell : UITableViewCell = tableView.cellForRow(at: indexPath as IndexPath)!
         cityTextField.text = selectedCell.textLabel?.text
+        answer = cityTextField.text
         autocompleteTableView.isHidden = true
         view.endEditing(true)
         showWeatherOutlet.isHidden = false

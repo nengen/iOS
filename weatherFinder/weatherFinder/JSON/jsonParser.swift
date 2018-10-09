@@ -59,12 +59,30 @@ class jsonParser{
         var tempArray = [String]()
         for array in json{
             
-            let stringForSearch = array.name + "," + array.country
+            let stringForSearch = array.name.lowercased().capitalized + "," + array.country
             tempArray.append(stringForSearch)
         }
 
         return tempArray
     }
-   
+    
+    func getIdFromJson(json: [String: [nameAndID]], city: String) -> Int {
+        var result = 0
+        for array in json{
+            if array.key.first == city.first {
+                for values in array.value{
+                    let string = values.name + "," + values.country
+                    if city == string{
+                        result = values.id
+                    }
+                }
+            }
+        }
+        return result
+    }
+    
+    
+ 
+    
 }
 //583509

@@ -41,10 +41,9 @@
                                     <action selector="showWeatherButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qkX-gU-98R"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fg-49-JSx">
-                                <rect key="frame" x="64" y="406" width="198" height="192"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fg-49-JSx">
+                                <rect key="frame" x="10" y="406" width="355" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -74,11 +73,15 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kbu-JO-g1l" firstAttribute="top" secondItem="0RA-NB-nkm" secondAttribute="bottom" id="6ZL-cQ-gEH"/>
+                            <constraint firstItem="9fg-49-JSx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6cg-Tk-IYL"/>
                             <constraint firstItem="kbu-JO-g1l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6rr-HV-h5D"/>
                             <constraint firstItem="9S9-6r-sX2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="A5Y-yP-VtT"/>
+                            <constraint firstAttribute="trailing" secondItem="9fg-49-JSx" secondAttribute="trailing" priority="749" constant="10" id="RNN-Db-vph"/>
                             <constraint firstItem="0RA-NB-nkm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U0E-Uh-WOb"/>
                             <constraint firstItem="wBd-h0-lR7" firstAttribute="top" secondItem="0RA-NB-nkm" secondAttribute="bottom" constant="75" id="VIX-p1-wq0"/>
+                            <constraint firstItem="9fg-49-JSx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="Vmc-FQ-a6S"/>
                             <constraint firstItem="0RA-NB-nkm" firstAttribute="top" secondItem="9S9-6r-sX2" secondAttribute="bottom" constant="75" id="drg-Qg-K5h"/>
+                            <constraint firstItem="9fg-49-JSx" firstAttribute="top" secondItem="wBd-h0-lR7" secondAttribute="bottom" constant="49" id="icD-Tm-9yO"/>
                             <constraint firstItem="9S9-6r-sX2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nrM-he-1Lz"/>
                             <constraint firstItem="wBd-h0-lR7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tNz-43-RCh"/>
                         </constraints>

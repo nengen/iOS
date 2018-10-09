@@ -13,7 +13,7 @@ extension UIImageView
 {
     func addBlurEffect()
     {
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffect = UIBlurEffect(style: UIBlurEffect.Style.light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
         let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)

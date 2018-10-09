@@ -37,7 +37,7 @@
 		E04EAD3A215A2B3F007A6CE0 /* sunGC.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunGC.jpg; sourceTree = "<group>"; };
 		E04EAD3B215A2B3F007A6CE0 /* sunForest.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunForest.jpg; sourceTree = "<group>"; };
 		E04EAD3C215A2B3F007A6CE0 /* rain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rain.jpg; sourceTree = "<group>"; };
-		E04EAD43215A2B8B007A6CE0 /* getWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getWeather.swift; sourceTree = "<group>"; };
+		E04EAD43215A2B8B007A6CE0 /* getWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = getWeather.swift; path = ViewController/getWeather.swift; sourceTree = "<group>"; };
 		E04EAD45215A2DA8007A6CE0 /* blurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blurEffect.swift; sourceTree = "<group>"; };
 		E04EAD4B215A4391007A6CE0 /* autoComplete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = autoComplete.swift; sourceTree = "<group>"; };
 		E0D934FB216783FA007D73B5 /* alphabeticSortedJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = alphabeticSortedJson.json; sourceTree = "<group>"; };
@@ -124,9 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				E0D93501216A02F6007D73B5 /* timer */,
-				E04EAD43215A2B8B007A6CE0 /* getWeather.swift */,
 				E00449FA21610110004DC15F /* ViewController */,
 				E0E12C342159153B00A28388 /* AppDelegate.swift */,
+				E04EAD43215A2B8B007A6CE0 /* getWeather.swift */,
 				E04EAD45215A2DA8007A6CE0 /* blurEffect.swift */,
 				E0E12C382159153B00A28388 /* Main.storyboard */,
 				E0487B852162445B00843B99 /* JSON */,
@@ -165,11 +165,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = None;
 				TargetAttributes = {
 					E0E12C302159153B00A28388 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -265,6 +266,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -272,6 +274,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -322,6 +325,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -329,6 +333,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -368,7 +373,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.norse.weatherFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -383,7 +388,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.norse.weatherFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
